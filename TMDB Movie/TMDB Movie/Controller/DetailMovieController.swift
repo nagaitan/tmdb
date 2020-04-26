@@ -34,6 +34,9 @@ class DetailMovieController: UIViewController {
     
     @IBAction func goReview(_ sender: Any) {
         print("GoReview")
+        let cont = ReviewViewController.initiate(movie: self.viewModel.movie)
+        
+        self.navigationController?.pushViewController(cont, animated: true)
     }
     
     @IBAction func goTrailer(_ sender: Any) {
@@ -44,8 +47,8 @@ class DetailMovieController: UIViewController {
     }
     
     func setupUI() {
-        self.navigationController?.navigationBar.isHidden = true
-        lblTitle.text = viewModel.movie.title ?? "-"
+        self.navigationItem.title = viewModel.movie.title ?? "-"
+        lblTitle.text = "Detail"
         lblGenre.text = viewModel.movie.genreString ?? "-"
         lblRelease.text = viewModel.movie.release_date
         lblOverview.text = viewModel.movie.overview ?? ""

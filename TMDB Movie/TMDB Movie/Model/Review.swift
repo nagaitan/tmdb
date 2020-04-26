@@ -23,7 +23,7 @@ struct Review {
         if json["author"].exists() {
             review.author = json["author"].string
         }
-        if json["key"].exists() {
+        if json["content"].exists() {
             review.content = json["content"].string
         }
         if json["url"].exists() {

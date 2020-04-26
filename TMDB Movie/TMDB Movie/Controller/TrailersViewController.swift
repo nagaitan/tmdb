@@ -31,6 +31,9 @@ class TrailersViewController: UIViewController, AlertDisplayer {
      }
     
     func setupUI(){
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationItem.title = "Trailer"
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -48,10 +51,20 @@ class TrailersViewController: UIViewController, AlertDisplayer {
     @objc private func refreshData(_ sender: Any) {
         viewModel.startStream()
     }
+    
+    @objc private func goBack(_ sender: Any) {
+        if mywkwebview == nil {
+            self.navigationController?.popViewController(animated: true)
+        }else{
+            self.navigationItem.leftBarButtonItems?.removeAll()
+            self.navigationItem.hidesBackButton = false
+            
+            mywkwebview?.removeFromSuperview()
+            mywkwebview = nil
+        }
+    }
 
 }
-
-
 
 extension TrailersViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -81,6 +94,10 @@ extension TrailersViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func presentTrailler(url : String){
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Close", style: UIBarButtonItem.Style.plain, target: self, action: #selector(goBack(_:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
+        
         print("https://www.youtube.com/watch?v=\(url)")
         
         let mywkwebviewConfig = WKWebViewConfiguration()
@@ -134,13 +151,7 @@ extension TrailersViewController : TrailersViewModelDelegate {
 
 extension TrailersViewController : WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        let button = UIButton(frame: CGRect(x: 0, y: self.view.frame.height - 150, width: self.view.frame.width, height: 50))
-        button.backgroundColor = .darkGray
-        button.setTitle("Close Trailer", for: .normal)
-        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         
-        mywkwebview?.addSubview(button)
-        mywkwebview?.bringSubviewToFront(button)
     }
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {

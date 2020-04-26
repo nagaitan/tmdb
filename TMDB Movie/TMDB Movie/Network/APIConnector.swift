@@ -34,6 +34,7 @@ class APIConnector: NSObject {
     final let URL_GENRES = "/genre/movie/list"
     final let URL_MOVIES = "/discover/movie"
     final let URL_TRAILLERS = "/movie/$ID/videos"
+    final let URL_REVIEWS = "/movie/$ID/reviews"
     
     override init() {
         homeURLString = "https://api.themoviedb.org/3"
@@ -66,6 +67,7 @@ class APIConnector: NSObject {
         }
     }
     
+    
     func getListTraillers(movieId : Int) -> Observable<([Trailer])>{
         let parameters: [String: Any] = [
             "api_key": API_KEY
@@ -87,6 +89,41 @@ class APIConnector: NSObject {
                 
                     return (traillers)
         }
+    }
+    
+    func getReviews(movieId : Int, page : Int = 1) -> Observable<([Review], Int, Int)>{
+        
+        let parameters: [String: Any] = [
+            "api_key": API_KEY,
+            "page" : page
+        ]
+        
+        let request = manager.request(homeURLString + URL_REVIEWS.replacingOccurrences(of: "$ID", with: "\(movieId)"), method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil)
+        
+        return request.rx_JSON()
+            .mapJSONResponse()
+            .map { response in
+                print(response.result)
+                
+                if response.code != 200 {
+                    throw NSError(domain: "APIErrorDomain", code: -1, userInfo: [NSLocalizedDescriptionKey: response.message])
+                }
+                    var reviews = [Review]()
+                    for gen in response.result["results"].arrayValue {
+                        if let catItem = Review.with(json: gen) {
+                            reviews.append(catItem)
+                        }
+                    }
+                
+                var page = 0, total_page = 0;
+                if response.result["page"].exists(), response.result["total_pages"].exists() {
+                    page = response.result["page"].intValue
+                    total_page = response.result["total_pages"].intValue
+                }
+                
+                    return (reviews, page, total_page)
+        }
+        
     }
     
     func getListMovie(genre_id : Int, page : Int = 1) -> Observable<([Movie], Int, Int)>{
