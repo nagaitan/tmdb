@@ -28,9 +28,12 @@ class APIConnector: NSObject {
     static let instance = APIConnector()
     let manager: APIManager
     let homeURLString : String
+    static let urlImage = "https://image.tmdb.org/t/p/w185/"
     final let API_KEY = "2dd8a088e8109b84d3d3f48a11668e7e"
     
     final let URL_GENRES = "/genre/movie/list"
+    final let URL_MOVIES = "/discover/movie"
+    
     
     override init() {
         homeURLString = "https://api.themoviedb.org/3"
@@ -60,6 +63,43 @@ class APIConnector: NSObject {
                     }
                 
                     return (genres)
+        }
+    }
+    
+    func getListMovie(genre_id : Int, page : Int = 1) -> Observable<([Movie], Int, Int)>{
+        
+        print("Request")
+        
+        let parameters: [String: Any] = [
+            "api_key": API_KEY,
+            "with_genres" : genre_id,
+            "page" : page
+        ]
+        
+        let request = manager.request(homeURLString + URL_MOVIES, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil)
+        
+        return request.rx_JSON()
+            .mapJSONResponse()
+            .map { response in
+                print(response.result)
+                
+                if response.code != 200 {
+                    throw NSError(domain: "APIErrorDomain", code: -1, userInfo: [NSLocalizedDescriptionKey: response.message])
+                }
+                    var movies = [Movie]()
+                    for gen in response.result["results"].arrayValue {
+                        if let catItem = Movie.with(json: gen) {
+                            movies.append(catItem)
+                        }
+                    }
+                
+                var page = 0, total_page = 0;
+                if response.result["page"].exists(), response.result["total_pages"].exists() {
+                    page = response.result["page"].intValue
+                    total_page = response.result["total_pages"].intValue
+                }
+                
+                    return (movies, page, total_page)
         }
     }
     

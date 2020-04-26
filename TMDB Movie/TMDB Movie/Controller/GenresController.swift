@@ -53,6 +53,12 @@ extension GenresController : UITableViewDelegate, UITableViewDataSource{
         
         return cell ?? UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cont = MovieListController.initiate(genre: viewModel.genres[indexPath.row])
+        
+        self.navigationController?.pushViewController(cont, animated: true)
+    }
 }
 
 extension GenresController : GenresViewModelDelegate {
