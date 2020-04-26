@@ -16,6 +16,7 @@ class DetailMovieController: UIViewController {
     @IBOutlet weak var lblGenre: UILabel!
     @IBOutlet weak var lblRelease: UILabel!
     @IBOutlet weak var lblOverview: UILabel!
+    @IBOutlet weak var lblVote: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +53,7 @@ class DetailMovieController: UIViewController {
         lblGenre.text = viewModel.movie.genreString ?? "-"
         lblRelease.text = viewModel.movie.release_date
         lblOverview.text = viewModel.movie.overview ?? ""
-        
+        lblVote.text = "\(viewModel.movie.vote_average) / 10"
         if let urlImage = viewModel.movie.poster_path, let url = NSURL(string: APIConnector.urlImage + urlImage){
             imgPoster.af_setImage(withURL: url as URL, placeholderImage: nil, filter: nil, progress: nil, imageTransition: .crossDissolve(0.3), runImageTransitionIfCached: true, completion: nil)
         }
