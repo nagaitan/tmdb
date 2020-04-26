@@ -1,0 +1,24 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '13.4'
+
+target 'TMDB Movie' do
+  use_frameworks!
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'Alamofire','~> 4.8.1'
+  pod 'AlamofireImage','~> 3.5.0'
+  pod 'SwiftyJSON'
+  pod 'RealmSwift'
+end
+
+  # Pods for E-Commerce
+
+  target 'TMDB MovieTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'TMDB MovieUITests' do
+    # Pods for testing
+  end
+
