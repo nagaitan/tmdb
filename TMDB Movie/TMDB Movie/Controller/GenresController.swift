@@ -63,17 +63,19 @@ extension GenresController : UITableViewDelegate, UITableViewDataSource{
 
 extension GenresController : GenresViewModelDelegate {
     func onLoading() {
-        
+         self.refreshControl.beginRefreshing()
     }
     func onFetchCompleted(with newIndexPathsToReload: [IndexPath]?) {
         print(viewModel.getGenresCount())
         self.tableView.reloadData()
+        self.refreshControl.endRefreshing()
     }
     func onFetchFailed(with reason: String) {
         print(reason)
         let title = "Warning"
         let action = UIAlertAction(title: "OK", style: .default)
         displayAlert(with: title , message: reason, actions: [action])
+        self.refreshControl.endRefreshing()
     }
 }
 

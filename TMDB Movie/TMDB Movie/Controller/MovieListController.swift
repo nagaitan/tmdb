@@ -73,9 +73,9 @@ extension MovieListController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let cont = MovieListController.initiate(genre: viewModel.genres[indexPath.row])
-//
-//        self.navigationController?.pushViewController(cont, animated: true)
+        let cont = DetailMovieController.initiate(movie: viewModel.movies[indexPath.row])
+
+        self.navigationController?.pushViewController(cont, animated: true)
     }
 }
 
