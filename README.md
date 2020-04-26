@@ -15,7 +15,8 @@ Alamofire, AlamofireImage, RxSwift, SwiftyJSON
 
 ## Features 
 - Load Genres List
-- Show Moview Detail
+- Show Movie List
+- Show Movie Detail
 - Show Review List
 - Show Trailer List 
 - Streaming Trailer
