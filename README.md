@@ -20,6 +20,7 @@ Alamofire, AlamofireImage, RxSwift, SwiftyJSON
 - Show Review List
 - Show Trailer List 
 - Streaming Trailer
+- Endless Scrolling on Movie & Review List
 - Positive & Negative Case
 
 # Installations : 
