@@ -38,12 +38,15 @@ class DetailMovieController: UIViewController {
     
     @IBAction func goTrailer(_ sender: Any) {
         print("GoTrailer")
+        let cont = TrailersViewController.initiate(movie: self.viewModel.movie)
+        
+        self.navigationController?.pushViewController(cont, animated: true)
     }
     
     func setupUI() {
         self.navigationController?.navigationBar.isHidden = true
         lblTitle.text = viewModel.movie.title ?? "-"
-        lblGenre.text = "Back"
+        lblGenre.text = viewModel.movie.genreString ?? "-"
         lblRelease.text = viewModel.movie.release_date
         lblOverview.text = viewModel.movie.overview ?? ""
         

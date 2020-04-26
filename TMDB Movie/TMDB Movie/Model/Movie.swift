@@ -17,6 +17,7 @@ struct Movie {
     var vote_average: Int = 0
     var overview : String?
     var release_date : String?
+    var genreString : String?
     
     static func with(json: JSON) -> Movie? {
         var movie = Movie()

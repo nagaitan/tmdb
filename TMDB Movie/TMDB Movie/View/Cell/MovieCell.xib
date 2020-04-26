@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,16 +28,16 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bkz-yt-qLn">
-                                <rect key="frame" x="101" y="8" width="228" height="61.5"/>
+                                <rect key="frame" x="101" y="8" width="276" height="61.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxa-xY-wEd" userLabel="Name Label">
-                                        <rect key="frame" x="0.0" y="0.0" width="228" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="276" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0uJ-tz-myG">
-                                        <rect key="frame" x="0.0" y="20.5" width="228" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="20.5" width="276" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Vote :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4t-o7-fEI" userLabel="Genre:">
                                                 <rect key="frame" x="0.0" y="0.0" width="44" height="20.5"/>
@@ -47,7 +46,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7SQ-uY-6ia" userLabel="Genre Label">
-                                                <rect key="frame" x="49" y="0.0" width="179" height="20.5"/>
+                                                <rect key="frame" x="49" y="0.0" width="227" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -55,7 +54,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="O9X-HL-kwY">
-                                        <rect key="frame" x="0.0" y="41" width="228" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="41" width="276" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Release:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Cc-dZ-JMe">
                                                 <rect key="frame" x="0.0" y="0.0" width="64.5" height="20.5"/>
@@ -64,7 +63,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="zjF-TF-xU4" userLabel="Release Date Label">
-                                                <rect key="frame" x="69.5" y="0.0" width="158.5" height="20.5"/>
+                                                <rect key="frame" x="69.5" y="0.0" width="206.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -73,52 +72,16 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fHZ-hb-swA" userLabel="Options View">
-                                <rect key="frame" x="341" y="8" width="48" height="61.5"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pU3-12-JuA" customClass="VoteAverageView" customModule="UpcomingMovies" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="7" width="48" height="48"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="pU3-12-JuA" secondAttribute="height" multiplier="1:1" id="hYm-1G-p5U"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundLayerColor">
-                                                <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="loadedLayerColor">
-                                                <color key="value" name="VoteAverageFill"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layerLineWidth">
-                                                <real key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layerStartAngle">
-                                                <real key="value" value="270"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="pU3-12-JuA" firstAttribute="centerY" secondItem="fHZ-hb-swA" secondAttribute="centerY" id="9vC-hh-VQn"/>
-                                    <constraint firstAttribute="trailing" secondItem="pU3-12-JuA" secondAttribute="trailing" id="JoO-U6-9V9"/>
-                                    <constraint firstAttribute="width" constant="48" id="Q8h-1e-Dtj"/>
-                                    <constraint firstItem="pU3-12-JuA" firstAttribute="leading" secondItem="fHZ-hb-swA" secondAttribute="leading" id="rC5-Mg-2Ne"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="fHZ-hb-swA" secondAttribute="trailing" id="0tI-Yy-D7r"/>
-                            <constraint firstItem="fHZ-hb-swA" firstAttribute="top" secondItem="IN5-wc-cB3" secondAttribute="top" constant="8" id="MPC-ao-KeL"/>
                             <constraint firstItem="bkz-yt-qLn" firstAttribute="top" secondItem="IN5-wc-cB3" secondAttribute="top" constant="8" id="Mzp-zt-IMg"/>
+                            <constraint firstAttribute="trailing" secondItem="bkz-yt-qLn" secondAttribute="trailing" constant="12" id="NhU-Xa-jea"/>
                             <constraint firstItem="3Rl-UW-qZf" firstAttribute="leading" secondItem="IN5-wc-cB3" secondAttribute="leading" id="XPr-4F-J6A"/>
                             <constraint firstItem="bkz-yt-qLn" firstAttribute="leading" secondItem="3Rl-UW-qZf" secondAttribute="trailing" constant="12" id="frH-ar-AbC"/>
-                            <constraint firstAttribute="bottom" secondItem="fHZ-hb-swA" secondAttribute="bottom" constant="8" id="gFC-q0-fqI"/>
                             <constraint firstItem="3Rl-UW-qZf" firstAttribute="top" secondItem="IN5-wc-cB3" secondAttribute="top" id="gv1-DK-O84"/>
                             <constraint firstAttribute="bottom" secondItem="3Rl-UW-qZf" secondAttribute="bottom" id="kB4-LO-5qO"/>
                             <constraint firstAttribute="bottom" secondItem="bkz-yt-qLn" secondAttribute="bottom" constant="8" id="uZh-UT-H3p"/>
-                            <constraint firstItem="fHZ-hb-swA" firstAttribute="leading" secondItem="bkz-yt-qLn" secondAttribute="trailing" constant="12" id="xs9-8p-AGf"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -139,9 +102,4 @@
             <point key="canvasLocation" x="136.95652173913044" y="151.33928571428569"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <namedColor name="VoteAverageFill">
-            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-    </resources>
 </document>

@@ -33,7 +33,7 @@ class APIConnector: NSObject {
     
     final let URL_GENRES = "/genre/movie/list"
     final let URL_MOVIES = "/discover/movie"
-    
+    final let URL_TRAILLERS = "/movie/$ID/videos"
     
     override init() {
         homeURLString = "https://api.themoviedb.org/3"
@@ -63,6 +63,29 @@ class APIConnector: NSObject {
                     }
                 
                     return (genres)
+        }
+    }
+    
+    func getListTraillers(movieId : Int) -> Observable<([Trailer])>{
+        let parameters: [String: Any] = [
+            "api_key": API_KEY
+        ]
+        let request = manager.request(homeURLString + URL_TRAILLERS.replacingOccurrences(of: "$ID", with: "\(movieId)"), method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil)
+        
+        return request.rx_JSON()
+            .mapJSONResponse()
+            .map { response in
+                if response.code != 200 {
+                    throw NSError(domain: "APIErrorDomain", code: -1, userInfo: [NSLocalizedDescriptionKey: response.message])
+                }
+                    var traillers = [Trailer]()
+                    for gen in response.result["results"].arrayValue {
+                        if let catItem = Trailer.with(json: gen) {
+                            traillers.append(catItem)
+                        }
+                    }
+                
+                    return (traillers)
         }
     }
     

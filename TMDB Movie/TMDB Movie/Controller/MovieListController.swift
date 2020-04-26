@@ -73,8 +73,10 @@ extension MovieListController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cont = DetailMovieController.initiate(movie: viewModel.movies[indexPath.row])
-
+        var movie = viewModel.movies[indexPath.row]
+        movie.genreString = self.viewModel.genre.name ?? ""
+        let cont = DetailMovieController.initiate(movie: movie)
+        self.tableView.deselectRow(at: indexPath, animated: false)
         self.navigationController?.pushViewController(cont, animated: true)
     }
 }
