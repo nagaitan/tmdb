@@ -47,8 +47,8 @@ class DetailMovieController: UIViewController {
     }
     
     func setupUI() {
-        self.navigationItem.title = viewModel.movie.title ?? "-"
-        lblTitle.text = "Detail"
+        self.navigationItem.title = "Detail"
+        lblTitle.text = viewModel.movie.title ?? "-"
         lblGenre.text = viewModel.movie.genreString ?? "-"
         lblRelease.text = viewModel.movie.release_date
         lblOverview.text = viewModel.movie.overview ?? ""

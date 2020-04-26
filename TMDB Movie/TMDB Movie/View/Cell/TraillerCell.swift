@@ -15,7 +15,7 @@ class TraillerCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        imgMovie.cardify()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
