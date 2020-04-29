@@ -28,4 +28,10 @@ class GenreCell: UITableViewCell {
         }
     }
     
+    func bind(genre : VGenre){
+        if let name = genre.name {
+            lblTitle.text = name
+        }
+    }
+    
 }

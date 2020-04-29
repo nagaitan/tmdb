@@ -8,6 +8,9 @@ target 'TMDB Movie' do
   pod 'Alamofire','~> 4.8.1'
   pod 'AlamofireImage','~> 3.5.0'
   pod 'SwiftyJSON'
+  pod 'RxAlamofire'
+  pod 'ObjectMapper'
+  
 end
 
   # Pods for E-Commerce

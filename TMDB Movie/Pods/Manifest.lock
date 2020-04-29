@@ -2,6 +2,12 @@ PODS:
   - Alamofire (4.8.2)
   - AlamofireImage (3.5.2):
     - Alamofire (~> 4.8)
+  - ObjectMapper (3.5.2)
+  - RxAlamofire (5.1.0):
+    - RxAlamofire/Core (= 5.1.0)
+  - RxAlamofire/Core (5.1.0):
+    - Alamofire (~> 4.8)
+    - RxSwift (~> 5.0)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -13,6 +19,8 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.8.1)
   - AlamofireImage (~> 3.5.0)
+  - ObjectMapper
+  - RxAlamofire
   - RxCocoa
   - RxSwift
   - SwiftyJSON
@@ -21,6 +29,8 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - AlamofireImage
+    - ObjectMapper
+    - RxAlamofire
     - RxCocoa
     - RxRelay
     - RxSwift
@@ -29,11 +39,13 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
+  ObjectMapper: b53ae947d370bf89423e86be7d4e2d2b2a8d3f40
+  RxAlamofire: a2d7621de4c23a0c6e7b476b504acc32838ee341
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 7879a78d71e6ae6382e535c56a03d8dd1706d732
+PODFILE CHECKSUM: b9f36d83bf5a5b6cced8edd2b1673792d16a1567
 
 COCOAPODS: 1.9.1

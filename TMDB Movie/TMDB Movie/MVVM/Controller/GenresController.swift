@@ -15,9 +15,14 @@ class GenresController: UIViewController, AlertDisplayer {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-        viewModel.delegate = self
-        viewModel.startStream()
+        self.dismiss(animated: true) {
+            
+            self.navigationController?.pushViewController(GenreListWireframe.buildModule(), animated: true)
+        }
+        
+//        setupUI()
+//        viewModel.delegate = self
+//        viewModel.startStream()
     }
     
     func setupUI(){
