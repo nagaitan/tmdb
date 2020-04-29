@@ -1,6 +1,6 @@
 # <p align="center">TMDb iOS Application</p>
 
-Movies app written in Swift 5 using the TMDb API, using MVVM Architechture, Clean Code (No Error No Warning)
+Movies app written in Swift 5 using the TMDb API, using MVVM Architechture, Clean Code (No Error No Warning), VIPER Example
 
 # Screenshots
 <img src="Screenshots/Genres.png" width=200 height=433> <img src="Screenshots/Movies.png" width=200 height=433>
