@@ -21,4 +21,9 @@ platform :ios do
     build_app(workspace: "TMDB Movie.xcworkspace", scheme: "TMDB Movie")
     upload_to_testflight
   end
+	
+	lane :unittests do
+  		run_tests(scheme: "TMDB MovieTests")
+	end	
+
 end
